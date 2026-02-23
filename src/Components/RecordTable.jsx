@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import RecordModel from "./RecordModel";
 import {selectAllRecords,setSearchTerm,selectSearchTerm,deleteRecord,selectFilterRecords} from '../store/recordSlice'
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 function RecordTable() {
+   
     const dispatch=useDispatch()
     const filteredRecords=useSelector(selectFilterRecords)
     const allRecords=useSelector(selectAllRecords)
@@ -25,7 +27,19 @@ function RecordTable() {
         setCurrentRecords(null)
     }
     const handlerDelete=(recode)=>{
-        dispatch(deleteRecord(recode.id))
+        toast((t)=>(
+            <div className="flex flex-col gap-2">
+                <span>Are you sure to delete this item?{recode.name}</span>
+                <div className="flex justify-end gap-2">
+                    <button onClick={()=>toast.dismiss(t.id)} className="px-3 py-1 hover:bg-gray-400 bg-gray-300 rounded text-sm">Cencel</button>
+                    <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm" onClick={()=>{
+                        dispatch(deleteRecord(recode.id))
+                        toast.success('Record Deleted')
+                        toast.dismiss(t.id)
+                    }}>Delete</button>
+                </div>
+            </div>
+        ),{duration:Infinity})
     }
   
   return (

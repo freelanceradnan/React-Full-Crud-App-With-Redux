@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateRecords,addRecord } from '../store/recordSlice';
+import toast, { Toaster } from 'react-hot-toast';
 const RecordModel = ({isOpen,onClose,currentRecord}) => {
      const dispatch=useDispatch()
      const [formData,setFormData]=useState({
@@ -32,6 +33,7 @@ const RecordModel = ({isOpen,onClose,currentRecord}) => {
         }
         else{
             dispatch(addRecord(formData))
+            toast.success("Record has been added!")
         }
         onClose()
     }
