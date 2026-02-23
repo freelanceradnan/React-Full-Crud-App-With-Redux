@@ -40,7 +40,7 @@ const loadRecordsFromStorage=()=>{
 const recordSlice=createSlice({
     name:"records",
     initialState:{
-        items:demoRecords,
+        items:loadRecordsFromStorage(),
         searchItems:"",
         nextId:calculatedNextId(loadRecordsFromStorage())
     },

@@ -18,7 +18,7 @@ function RecordTable() {
     }
     const openEditModel=(record)=>{
         setCurrentRecords(record)
-        setShowModel(null)
+        setShowModel(true)
     }
     const closeModel=()=>{
         setShowModel(false)
@@ -133,7 +133,11 @@ function RecordTable() {
 </div>
       </div>
       {/* model */}
-      {/* <RecordModel/> */}
+     <RecordModel 
+  isOpen={showModel} 
+  onClose={closeModel} 
+  currentRecord={currentRecords} 
+/>
     </div>
   );
 }
