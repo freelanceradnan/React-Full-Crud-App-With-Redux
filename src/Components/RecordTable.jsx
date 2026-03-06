@@ -45,7 +45,7 @@ function RecordTable() {
   return (
     <div className="min-h-screen bg-gray-100 p-2">
       <div className="max-w-5xl mx-auto">
-        {/* header */}
+        {/* header section*/}
         <div className="bg-white rounded-lg shadow-md p-2 mb-1">
           <h1 className="text-xl font-bold text-gray-800 mb-1">
             Employee Management
@@ -55,6 +55,8 @@ function RecordTable() {
             Manage employee records with Redux Toolkit
           </p>
         </div>
+
+
         <div className="bg-white rounded-lg shadow-md p-2 mb-2">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
@@ -74,6 +76,9 @@ function RecordTable() {
             </button>
           </div>
         </div>
+
+
+        
       {/* Employee--table */}
 <div className="bg-white rounded-lg shadow-md overflow-hidden">
 <div className="overflow-x-auto">
